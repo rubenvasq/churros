@@ -1,0 +1,103 @@
+// Esquema Prisma de "El Rinconcito" (versión Next.js).
+// Reproduce el dominio de la app Laravel original: usuarios con roles,
+// platos del menú (con ofertas), pedidos y reseñas.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// Roles de usuario de la aplicación.
+enum Role {
+  cliente
+  chef
+  repartidor
+  admin
+}
+
+/// Estados por los que pasa un pedido.
+enum EstadoPedido {
+  en_espera
+  listo
+  entregado
+}
+
+model User {
+  id              Int       @id @default(autoincrement())
+  name            String
+  email           String    @unique
+  password        String
+  role            Role      @default(cliente)
+  telefono        String?
+  fechaNacimiento DateTime? @map("fecha_nacimiento") @db.Date
+  emailVerifiedAt DateTime? @map("email_verified_at")
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @updatedAt @map("updated_at")
+
+  platos  Plato[]
+  pedidos Pedido[] @relation("PedidosCliente")
+  resenas Resena[]
+
+  @@map("users")
+}
+
+model Plato {
+  id                   Int       @id @default(autoincrement())
+  nombre               String
+  descripcion          String?
+  ingredientes         String?
+  precio               Decimal   @db.Decimal(10, 2)
+  imagen               String?
+  cantidad             Int       @default(0)
+  saludable            Boolean   @default(false)
+  incluirEnSaludables  Boolean   @default(false) @map("incluir_en_saludables")
+  vegano               Boolean   @default(false)
+  tipoComida           String?   @map("tipo_comida")
+  descuentoPorcentaje  Int?      @map("descuento_porcentaje")
+  fechaInicioOferta    DateTime? @map("fecha_inicio_oferta") @db.Date
+  fechaFinOferta       DateTime? @map("fecha_fin_oferta") @db.Date
+  userId               Int?      @map("user_id")
+  createdAt            DateTime  @default(now()) @map("created_at")
+  updatedAt            DateTime  @updatedAt @map("updated_at")
+
+  user    User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  pedidos Pedido[]
+  resenas Resena[]
+
+  @@map("platos")
+}
+
+model Pedido {
+  id                 Int          @id @default(autoincrement())
+  clienteId          Int          @map("cliente_id")
+  platoId            Int          @map("plato_id")
+  estado             EstadoPedido @default(en_espera)
+  cantidad           Int          @default(1)
+  precioConDescuento Decimal?     @map("precio_con_descuento") @db.Decimal(10, 2)
+  createdAt          DateTime     @default(now()) @map("created_at")
+  updatedAt          DateTime     @updatedAt @map("updated_at")
+
+  cliente User  @relation("PedidosCliente", fields: [clienteId], references: [id], onDelete: Cascade)
+  plato   Plato @relation(fields: [platoId], references: [id], onDelete: Cascade)
+
+  @@map("pedidos")
+}
+
+model Resena {
+  id           Int      @id @default(autoincrement())
+  userId       Int      @map("user_id")
+  platoId      Int      @map("plato_id")
+  calificacion Int
+  comentario   String?
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  plato Plato @relation(fields: [platoId], references: [id], onDelete: Cascade)
+
+  @@map("resenas")
+}
