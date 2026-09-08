@@ -19,14 +19,14 @@ export default async function ChefPage() {
   return (
     <PanelShell titulo="Chef" usuario={session?.user}>
       <div className="mb-6 flex items-center justify-between">
-        <h2 className="text-2xl font-bold text-[--color-ink]">Cocina</h2>
+        <h2 className="text-2xl font-bold text-ink">Cocina</h2>
         <span className="rounded-full bg-yellow-100 px-3 py-1 text-sm font-semibold text-yellow-800">
           {pedidos.length} en espera
         </span>
       </div>
 
       {pedidos.length === 0 ? (
-        <p className="rounded-lg bg-[--color-surface] p-6 text-[--color-muted] shadow">
+        <p className="rounded-lg bg-surface p-6 text-muted shadow">
           No hay pedidos en espera. ¡Todo al día! 🎉
         </p>
       ) : (
@@ -36,10 +36,10 @@ export default async function ChefPage() {
             return (
               <article
                 key={pedido.id}
-                className="flex flex-col rounded-2xl bg-[--color-surface] p-5 shadow"
+                className="flex flex-col rounded-2xl bg-surface p-5 shadow"
               >
                 <div className="flex items-start justify-between gap-2">
-                  <h3 className="font-semibold text-[--color-ink]">
+                  <h3 className="font-semibold text-ink">
                     {pedido.plato.nombre}
                   </h3>
                   <span
@@ -48,10 +48,10 @@ export default async function ChefPage() {
                     {info.texto}
                   </span>
                 </div>
-                <dl className="mt-3 space-y-1 text-sm text-[--color-muted]">
+                <dl className="mt-3 space-y-1 text-sm text-muted">
                   <div className="flex justify-between">
                     <dt>Cantidad</dt>
-                    <dd className="font-medium text-[--color-ink]">
+                    <dd className="font-medium text-ink">
                       ×{pedido.cantidad}
                     </dd>
                   </div>
@@ -75,7 +75,7 @@ export default async function ChefPage() {
                 <form action={marcarListo.bind(null, pedido.id)} className="mt-4">
                   <button
                     type="submit"
-                    className="w-full rounded-lg bg-[--color-ink] py-2 text-sm font-semibold text-white hover:opacity-90"
+                    className="w-full rounded-lg bg-ink py-2 text-sm font-semibold text-white hover:opacity-90"
                   >
                     Marcar como listo ✓
                   </button>

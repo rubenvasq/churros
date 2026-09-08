@@ -2,9 +2,12 @@
 
 /* ---- Sistema de diseño "El Rinconcito" -------------------------------
    Estilo: moderno, minimalista, editorial. Fondo crema, tinta casi negra,
-   un único acento terracota. Títulos con serif (Playfair), cuerpo Inter. */
+   un único acento terracota. Títulos con serif (Playfair), cuerpo Inter.
 
-:root {
+   Los colores se declaran en @theme para que Tailwind v4 genere utilidades
+   con nombre: bg-ink, text-muted, border-line, bg-accent, bg-accent-soft… */
+
+@theme {
   --color-bg: #f7f4ef; /* crema */
   --color-surface: #ffffff;
   --color-ink: #17150f; /* casi negro cálido */
@@ -14,18 +17,6 @@
   --color-accent-soft: #f3e4df;
 }
 
-@theme inline {
-  --color-bg: var(--color-bg);
-  --color-surface: var(--color-surface);
-  --color-ink: var(--color-ink);
-  --color-muted: var(--color-muted);
-  --color-line: var(--color-line);
-  --color-accent: var(--color-accent);
-  --color-accent-soft: var(--color-accent-soft);
-  --font-sans: var(--font-sans);
-  --font-serif: var(--font-serif);
-}
-
 body {
   background: var(--color-bg);
   color: var(--color-ink);
@@ -33,12 +24,12 @@ body {
 }
 
 /* Utilidades de tipografía editorial */
-.font-serif {
+.font-serif,
+.title-serif {
   font-family: var(--font-serif), Georgia, serif;
 }
 
 .title-serif {
-  font-family: var(--font-serif), Georgia, serif;
   letter-spacing: -0.01em;
   line-height: 1.05;
 }

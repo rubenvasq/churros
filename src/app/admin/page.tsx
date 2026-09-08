@@ -45,13 +45,13 @@ export default async function AdminPage() {
 
   return (
     <PanelShell titulo="Administración" usuario={session?.user}>
-      <h2 className="text-2xl font-bold text-[--color-ink]">Panel de administración</h2>
+      <h2 className="text-2xl font-bold text-ink">Panel de administración</h2>
       <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
         {tarjetas.map((t) => (
-          <div key={t.etiqueta} className="rounded-2xl bg-[--color-surface] p-6 shadow">
+          <div key={t.etiqueta} className="rounded-2xl bg-surface p-6 shadow">
             <div className="text-3xl">{t.icono}</div>
-            <div className="mt-2 text-3xl font-bold text-[--color-accent]">{t.valor}</div>
-            <div className="text-sm text-[--color-muted]">{t.etiqueta}</div>
+            <div className="mt-2 text-3xl font-bold text-accent">{t.valor}</div>
+            <div className="text-sm text-muted">{t.etiqueta}</div>
           </div>
         ))}
       </div>
@@ -61,13 +61,13 @@ export default async function AdminPage() {
           <Link
             key={a.href}
             href={a.href}
-            className="group rounded-2xl bg-[--color-surface] p-6 shadow transition hover:shadow-md"
+            className="group rounded-2xl bg-surface p-6 shadow transition hover:shadow-md"
           >
             <div className="text-3xl">{a.icono}</div>
-            <div className="mt-2 font-semibold text-[--color-ink] group-hover:text-[--color-accent]">
+            <div className="mt-2 font-semibold text-ink group-hover:text-accent">
               {a.titulo}
             </div>
-            <p className="mt-1 text-sm text-[--color-muted]">{a.texto}</p>
+            <p className="mt-1 text-sm text-muted">{a.texto}</p>
           </Link>
         ))}
       </div>

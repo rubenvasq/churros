@@ -18,27 +18,27 @@ export default async function AdminPedidosPage() {
     <PanelShell titulo="Administración" usuario={session?.user}>
       <div className="mb-6 flex items-center justify-between">
         <div>
-          <Link href="/admin" className="text-sm text-[--color-accent] hover:underline">
+          <Link href="/admin" className="text-sm text-accent hover:underline">
             ← Panel
           </Link>
-          <h2 className="text-2xl font-bold text-[--color-ink]">Todos los pedidos</h2>
+          <h2 className="text-2xl font-bold text-ink">Todos los pedidos</h2>
         </div>
         <Link
           href="/admin/reportes"
-          className="rounded-lg border border-[--color-line] px-4 py-2 text-sm font-medium text-[--color-accent] hover:bg-[--color-accent-soft]"
+          className="rounded-lg border border-line px-4 py-2 text-sm font-medium text-accent hover:bg-accent-soft"
         >
           Exportar 📊
         </Link>
       </div>
 
       {pedidos.length === 0 ? (
-        <p className="rounded-lg bg-[--color-surface] p-6 text-[--color-muted] shadow">
+        <p className="rounded-lg bg-surface p-6 text-muted shadow">
           No hay pedidos registrados.
         </p>
       ) : (
-        <div className="overflow-x-auto rounded-2xl bg-[--color-surface] shadow">
+        <div className="overflow-x-auto rounded-2xl bg-surface shadow">
           <table className="w-full text-left text-sm">
-            <thead className="bg-[--color-accent-soft] text-[--color-ink]">
+            <thead className="bg-accent-soft text-ink">
               <tr>
                 <th className="px-4 py-3">#</th>
                 <th className="px-4 py-3">Cliente</th>
@@ -49,20 +49,20 @@ export default async function AdminPedidosPage() {
                 <th className="px-4 py-3">Fecha</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[--color-line]">
+            <tbody className="divide-y divide-line">
               {pedidos.map((pedido) => {
                 const info = ESTADO_INFO[pedido.estado];
                 return (
                   <tr key={pedido.id}>
-                    <td className="px-4 py-3 text-[--color-muted]">{pedido.id}</td>
-                    <td className="px-4 py-3 text-[--color-ink]">
+                    <td className="px-4 py-3 text-muted">{pedido.id}</td>
+                    <td className="px-4 py-3 text-ink">
                       {pedido.cliente.name}
                     </td>
-                    <td className="px-4 py-3 font-medium text-[--color-ink]">
+                    <td className="px-4 py-3 font-medium text-ink">
                       {pedido.plato.nombre}
                     </td>
-                    <td className="px-4 py-3 text-[--color-muted]">{pedido.cantidad}</td>
-                    <td className="px-4 py-3 text-[--color-muted]">
+                    <td className="px-4 py-3 text-muted">{pedido.cantidad}</td>
+                    <td className="px-4 py-3 text-muted">
                       {pedido.precioConDescuento != null
                         ? formatearPrecio(Number(pedido.precioConDescuento))
                         : "—"}
@@ -74,7 +74,7 @@ export default async function AdminPedidosPage() {
                         {info.texto}
                       </span>
                     </td>
-                    <td className="px-4 py-3 text-[--color-muted]">
+                    <td className="px-4 py-3 text-muted">
                       {pedido.createdAt.toLocaleString("es-PE")}
                     </td>
                   </tr>

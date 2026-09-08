@@ -41,7 +41,7 @@ export default function LoginPage() {
             El Rinconcito
           </Link>
           <h1 className="mt-8 text-2xl font-semibold">Iniciar sesión</h1>
-          <p className="mt-1 text-sm text-[--color-muted]">
+          <p className="mt-1 text-sm text-muted">
             Ingresa tus datos para continuar.
           </p>
 
@@ -49,7 +49,7 @@ export default function LoginPage() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-[--color-ink]"
+                className="block text-sm font-medium text-ink"
               >
                 Correo
               </label>
@@ -59,14 +59,14 @@ export default function LoginPage() {
                 type="email"
                 required
                 autoComplete="email"
-                className="mt-1.5 w-full rounded-xl border border-[--color-line] bg-[--color-surface] px-4 py-2.5 text-[--color-ink] outline-none transition focus:border-[--color-accent] focus:ring-2 focus:ring-[--color-accent]/20"
+                className="mt-1.5 w-full rounded-xl border border-line bg-surface px-4 py-2.5 text-ink outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/20"
               />
             </div>
 
             <div>
               <label
                 htmlFor="password"
-                className="block text-sm font-medium text-[--color-ink]"
+                className="block text-sm font-medium text-ink"
               >
                 Contraseña
               </label>
@@ -76,12 +76,12 @@ export default function LoginPage() {
                 type="password"
                 required
                 autoComplete="current-password"
-                className="mt-1.5 w-full rounded-xl border border-[--color-line] bg-[--color-surface] px-4 py-2.5 text-[--color-ink] outline-none transition focus:border-[--color-accent] focus:ring-2 focus:ring-[--color-accent]/20"
+                className="mt-1.5 w-full rounded-xl border border-line bg-surface px-4 py-2.5 text-ink outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/20"
               />
             </div>
 
             {estado.error && (
-              <p className="rounded-xl bg-[--color-accent-soft] px-4 py-2.5 text-sm text-[--color-accent]">
+              <p className="rounded-xl bg-accent-soft px-4 py-2.5 text-sm text-accent">
                 {estado.error}
               </p>
             )}
@@ -89,14 +89,14 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={pendiente}
-              className="w-full rounded-full bg-[--color-ink] py-3 font-medium text-white transition hover:opacity-90 disabled:opacity-60"
+              className="w-full rounded-full bg-ink py-3 font-medium text-white transition hover:opacity-90 disabled:opacity-60"
             >
               {pendiente ? "Entrando…" : "Entrar"}
             </button>
           </form>
 
-          <p className="mt-8 text-center text-sm text-[--color-muted]">
-            <Link href="/" className="hover:text-[--color-ink]">
+          <p className="mt-8 text-center text-sm text-muted">
+            <Link href="/" className="hover:text-ink">
               ← Volver al inicio
             </Link>
           </p>

@@ -41,21 +41,21 @@ export default async function ResenasClientePage() {
   return (
     <PanelShell titulo="Cliente" usuario={session?.user}>
       <div className="mb-6 flex items-center justify-between">
-        <h2 className="text-2xl font-bold text-[--color-ink]">Reseñas</h2>
+        <h2 className="text-2xl font-bold text-ink">Reseñas</h2>
         <Link
           href="/cliente"
-          className="rounded-lg border border-[--color-line] px-4 py-2 text-sm font-medium text-[--color-accent] hover:bg-[--color-accent-soft]"
+          className="rounded-lg border border-line px-4 py-2 text-sm font-medium text-accent hover:bg-accent-soft"
         >
           ← Volver al menú
         </Link>
       </div>
 
       <section className="mb-10">
-        <h3 className="mb-3 text-lg font-semibold text-[--color-ink]">
+        <h3 className="mb-3 text-lg font-semibold text-ink">
           Platos por reseñar
         </h3>
         {pendientes.length === 0 ? (
-          <p className="rounded-lg bg-[--color-surface] p-6 text-[--color-muted] shadow">
+          <p className="rounded-lg bg-surface p-6 text-muted shadow">
             No tienes platos entregados pendientes de reseñar.
           </p>
         ) : (
@@ -64,17 +64,17 @@ export default async function ResenasClientePage() {
               <form
                 key={plato.id}
                 action={crearResena}
-                className="rounded-2xl bg-[--color-surface] p-5 shadow"
+                className="rounded-2xl bg-surface p-5 shadow"
               >
                 <input type="hidden" name="platoId" value={plato.id} />
-                <h4 className="font-semibold text-[--color-ink]">{plato.nombre}</h4>
-                <label className="mt-3 block text-sm font-medium text-[--color-ink]">
+                <h4 className="font-semibold text-ink">{plato.nombre}</h4>
+                <label className="mt-3 block text-sm font-medium text-ink">
                   Calificación
                 </label>
                 <select
                   name="calificacion"
                   defaultValue="5"
-                  className="mt-1 w-full rounded-lg border border-[--color-line] px-3 py-2 text-sm"
+                  className="mt-1 w-full rounded-lg border border-line px-3 py-2 text-sm"
                 >
                   <option value="5">★★★★★ (5)</option>
                   <option value="4">★★★★ (4)</option>
@@ -82,18 +82,18 @@ export default async function ResenasClientePage() {
                   <option value="2">★★ (2)</option>
                   <option value="1">★ (1)</option>
                 </select>
-                <label className="mt-3 block text-sm font-medium text-[--color-ink]">
+                <label className="mt-3 block text-sm font-medium text-ink">
                   Comentario
                 </label>
                 <textarea
                   name="comentario"
                   rows={2}
                   placeholder="¿Qué te pareció?"
-                  className="mt-1 w-full rounded-lg border border-[--color-line] px-3 py-2 text-sm"
+                  className="mt-1 w-full rounded-lg border border-line px-3 py-2 text-sm"
                 />
                 <button
                   type="submit"
-                  className="mt-4 w-full rounded-lg bg-[--color-ink] py-2 text-sm font-semibold text-white hover:opacity-90"
+                  className="mt-4 w-full rounded-lg bg-ink py-2 text-sm font-semibold text-white hover:opacity-90"
                 >
                   Enviar reseña
                 </button>
@@ -104,30 +104,30 @@ export default async function ResenasClientePage() {
       </section>
 
       <section>
-        <h3 className="mb-3 text-lg font-semibold text-[--color-ink]">Mis reseñas</h3>
+        <h3 className="mb-3 text-lg font-semibold text-ink">Mis reseñas</h3>
         {misResenas.length === 0 ? (
-          <p className="rounded-lg bg-[--color-surface] p-6 text-[--color-muted] shadow">
+          <p className="rounded-lg bg-surface p-6 text-muted shadow">
             Aún no has escrito ninguna reseña.
           </p>
         ) : (
           <div className="space-y-3">
             {misResenas.map((r) => (
-              <div key={r.id} className="rounded-2xl bg-[--color-surface] p-5 shadow">
+              <div key={r.id} className="rounded-2xl bg-surface p-5 shadow">
                 <div className="flex items-center justify-between">
-                  <h4 className="font-semibold text-[--color-ink]">
+                  <h4 className="font-semibold text-ink">
                     {r.plato.nombre}
                   </h4>
-                  <span className="text-[--color-accent]">
+                  <span className="text-accent">
                     {"★".repeat(r.calificacion)}
-                    <span className="text-[--color-line]">
+                    <span className="text-line">
                       {"★".repeat(5 - r.calificacion)}
                     </span>
                   </span>
                 </div>
                 {r.comentario && (
-                  <p className="mt-1 text-sm text-[--color-muted]">{r.comentario}</p>
+                  <p className="mt-1 text-sm text-muted">{r.comentario}</p>
                 )}
-                <p className="mt-2 text-xs text-[--color-muted]">
+                <p className="mt-2 text-xs text-muted">
                   {r.createdAt.toLocaleDateString("es-PE")}
                 </p>
               </div>

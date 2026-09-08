@@ -25,7 +25,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="es"
       className={`${inter.variable} ${playfair.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[--color-bg] text-[--color-ink]">
+      <body className="min-h-full flex flex-col bg-bg text-ink">
         {children}
       </body>
     </html>

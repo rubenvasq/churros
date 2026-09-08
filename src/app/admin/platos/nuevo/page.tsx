@@ -14,11 +14,11 @@ export default async function NuevoPlatoPage() {
       <div className="mb-6">
         <Link
           href="/admin/platos"
-          className="text-sm text-[--color-accent] hover:underline"
+          className="text-sm text-accent hover:underline"
         >
           ← Platos
         </Link>
-        <h2 className="text-2xl font-bold text-[--color-ink]">Nuevo plato</h2>
+        <h2 className="text-2xl font-bold text-ink">Nuevo plato</h2>
       </div>
       <PlatoForm action={crearPlato} />
     </PanelShell>
