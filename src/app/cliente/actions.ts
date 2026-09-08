@@ -76,5 +76,5 @@ export async function confirmarPedido() {
     await prisma.pedido.createMany({ data: filas });
   }
   await limpiarCarrito();
-  redirect("/cliente/pedidos");
+  redirect("/cliente/pedido-confirmado");
 }

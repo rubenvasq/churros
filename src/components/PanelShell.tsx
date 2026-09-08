@@ -31,19 +31,23 @@ export function PanelShell({
           </div>
           <div className="flex items-center gap-3">
             {usuario?.name && (
-              <div className="flex items-center gap-2">
+              <Link
+                href="/perfil"
+                className="flex items-center gap-2 rounded-full px-1 py-0.5 transition hover:bg-accent-soft"
+                title="Mi perfil"
+              >
                 <span className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-sm font-semibold text-white">
                   {inicial}
                 </span>
                 <span className="hidden text-sm leading-tight sm:block">
                   <span className="block font-medium">{usuario.name}</span>
                   {usuario.role && (
-                    <span className="text-xs text-muted">
+                    <span className="text-xs capitalize text-muted">
                       {usuario.role}
                     </span>
                   )}
                 </span>
-              </div>
+              </Link>
             )}
             <LogoutButton />
           </div>

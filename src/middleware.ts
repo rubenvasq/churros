@@ -10,9 +10,13 @@ export default auth((req) => {
   const user = req.auth?.user as { role?: string } | undefined;
   const path = nextUrl.pathname;
 
-  const necesitaAuth = ["/cliente", "/chef", "/repartidor", "/admin"].some((p) =>
-    path.startsWith(p),
-  );
+  const necesitaAuth = [
+    "/cliente",
+    "/chef",
+    "/repartidor",
+    "/admin",
+    "/perfil",
+  ].some((p) => path.startsWith(p));
 
   if (necesitaAuth && !user) {
     const url = new URL("/login", nextUrl);
@@ -34,5 +38,6 @@ export const config = {
     "/chef/:path*",
     "/repartidor/:path*",
     "/admin/:path*",
+    "/perfil/:path*",
   ],
 };

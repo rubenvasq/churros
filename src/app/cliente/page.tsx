@@ -154,7 +154,7 @@ export default async function ClienteMenuPage({
                       </span>
                     )}
                   </div>
-                  <AgregarCarritoButton platoId={plato.id} />
+                  <AgregarCarritoButton platoId={plato.id} nombre={plato.nombre} />
                 </div>
               </article>
             );

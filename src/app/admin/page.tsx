@@ -36,6 +36,12 @@ export default async function AdminPage() {
       icono: "🧾",
     },
     {
+      href: "/admin/usuarios",
+      titulo: "Usuarios",
+      texto: "Gestiona roles y da de alta chefs o repartidores.",
+      icono: "👥",
+    },
+    {
       href: "/admin/reportes",
       titulo: "Reportes",
       texto: "Exportar pedidos a Excel o PDF.",
