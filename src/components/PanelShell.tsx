@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { LogoutButton } from "@/components/LogoutButton";
+import { panelPara } from "@/lib/roles";
 
 export function PanelShell({
   titulo,
@@ -11,6 +12,7 @@ export function PanelShell({
   children: React.ReactNode;
 }) {
   const inicial = usuario?.name?.trim()?.[0]?.toUpperCase() ?? "?";
+  const inicio = panelPara(usuario?.role);
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -18,7 +20,7 @@ export function PanelShell({
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-3">
             <Link
-              href="/"
+              href={inicio}
               className="title-serif text-xl font-bold tracking-tight"
             >
               El Rinconcito
