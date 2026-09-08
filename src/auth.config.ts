@@ -3,6 +3,8 @@ import type { NextAuthConfig } from "next-auth";
 // Configuración base compartida (segura para el runtime edge del middleware:
 // sin Prisma ni bcrypt aquí). Los providers se añaden en auth.ts.
 export const authConfig = {
+  // Necesario detrás del proxy de Vercel/Render para que Auth.js confíe en el host.
+  trustHost: true,
   pages: {
     signIn: "/login",
   },
