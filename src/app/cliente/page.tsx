@@ -8,7 +8,8 @@ import {
   estaEnOferta,
   precioConDescuento,
 } from "@/lib/platos";
-import { agregarAlCarrito } from "./actions";
+import { AgregarCarritoButton } from "./AgregarCarritoButton";
+import { CarritoBadge } from "./CarritoBadge";
 
 export const dynamic = "force-dynamic";
 
@@ -44,11 +45,7 @@ export default async function ClienteMenuPage() {
             className="relative rounded-lg bg-ink px-4 py-2 text-sm font-semibold text-white hover:opacity-90"
           >
             Carrito 🛒
-            {totalCarrito > 0 && (
-              <span className="absolute -right-2 -top-2 flex h-6 min-w-6 items-center justify-center rounded-full bg-red-600 px-1.5 text-xs font-bold text-white">
-                {totalCarrito}
-              </span>
-            )}
+            <CarritoBadge total={totalCarrito} />
           </Link>
         </div>
       </div>
@@ -101,14 +98,7 @@ export default async function ClienteMenuPage() {
                       </span>
                     )}
                   </div>
-                  <form action={agregarAlCarrito.bind(null, plato.id)} className="mt-4">
-                    <button
-                      type="submit"
-                      className="w-full rounded-lg bg-ink py-2 text-sm font-semibold text-white hover:opacity-90"
-                    >
-                      Añadir al carrito
-                    </button>
-                  </form>
+                  <AgregarCarritoButton platoId={plato.id} />
                 </div>
               </article>
             );
