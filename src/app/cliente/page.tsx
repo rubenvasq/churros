@@ -34,6 +34,12 @@ export default async function ClienteMenuPage() {
             Mis pedidos
           </Link>
           <Link
+            href="/cliente/resenas"
+            className="rounded-lg border border-amber-300 px-4 py-2 text-sm font-medium text-amber-800 hover:bg-amber-100"
+          >
+            Reseñas
+          </Link>
+          <Link
             href="/cliente/carrito"
             className="relative rounded-lg bg-amber-600 px-4 py-2 text-sm font-semibold text-white hover:bg-amber-700"
           >
