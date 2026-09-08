@@ -23,6 +23,9 @@ async function main() {
     });
   }
 
+  const img = (id) =>
+    `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=800&q=80`;
+
   const platos = [
     {
       nombre: "Lomo Saltado",
@@ -31,6 +34,7 @@ async function main() {
       precio: 25.9,
       cantidad: 20,
       tipoComida: "Plato de fondo",
+      imagen: img("1414235077428-338989a2e8c0"),
     },
     {
       nombre: "Ají de Gallina",
@@ -39,6 +43,7 @@ async function main() {
       precio: 22.5,
       cantidad: 15,
       tipoComida: "Plato de fondo",
+      imagen: img("1546069901-ba9599a7e63c"),
     },
     {
       nombre: "Ceviche Clásico",
@@ -49,6 +54,7 @@ async function main() {
       tipoComida: "Entrada",
       saludable: true,
       incluirEnSaludables: true,
+      imagen: img("1512621776951-a57141f2eefd"),
     },
     {
       nombre: "Causa Limeña",
@@ -57,6 +63,7 @@ async function main() {
       precio: 18.0,
       cantidad: 10,
       tipoComida: "Entrada",
+      imagen: img("1476224203421-9ac39bcb3327"),
     },
     {
       nombre: "Suspiro a la Limeña",
@@ -65,6 +72,7 @@ async function main() {
       precio: 12.0,
       cantidad: 25,
       tipoComida: "Postre",
+      imagen: img("1567620905732-2d1ec7ab7445"),
     },
   ];
 

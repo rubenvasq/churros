@@ -5,7 +5,7 @@ export function LogoutButton() {
     <form action={cerrarSesion}>
       <button
         type="submit"
-        className="rounded-lg border border-amber-300 px-3 py-1.5 text-sm font-medium text-amber-800 transition hover:bg-amber-100"
+        className="rounded-full border border-[--color-line] px-4 py-1.5 text-sm font-medium text-[--color-muted] transition hover:border-[--color-ink]/40 hover:text-[--color-ink]"
       >
         Cerrar sesión
       </button>

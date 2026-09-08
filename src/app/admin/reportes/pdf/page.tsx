@@ -14,19 +14,19 @@ export default async function ReportePdfPage() {
   const fecha = new Date().toLocaleString("es-PE");
 
   return (
-    <div className="mx-auto max-w-4xl bg-white p-10 text-gray-900">
+    <div className="mx-auto max-w-4xl bg-[--color-surface] p-10 text-[--color-ink]">
       <div className="mb-6 flex items-start justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-amber-700">El Rinconcito</h1>
+          <h1 className="text-2xl font-bold text-[--color-accent]">El Rinconcito</h1>
           <h2 className="text-lg font-semibold">Reporte de pedidos</h2>
-          <p className="text-sm text-gray-500">Generado el {fecha}</p>
+          <p className="text-sm text-[--color-muted]">Generado el {fecha}</p>
         </div>
         <BotonImprimir />
       </div>
 
       <table className="w-full border-collapse text-left text-sm">
         <thead>
-          <tr className="border-b-2 border-amber-300 bg-amber-50">
+          <tr className="border-b-2 border-[--color-line] bg-[--color-accent-soft]">
             <th className="px-3 py-2">#</th>
             <th className="px-3 py-2">Cliente</th>
             <th className="px-3 py-2">Plato</th>
@@ -38,8 +38,8 @@ export default async function ReportePdfPage() {
         </thead>
         <tbody>
           {filas.map((f) => (
-            <tr key={f.id} className="border-b border-gray-200">
-              <td className="px-3 py-2 text-gray-500">{f.id}</td>
+            <tr key={f.id} className="border-b border-[--color-line]">
+              <td className="px-3 py-2 text-[--color-muted]">{f.id}</td>
               <td className="px-3 py-2">{f.cliente}</td>
               <td className="px-3 py-2 font-medium">{f.plato}</td>
               <td className="px-3 py-2">{f.cantidad}</td>
@@ -47,14 +47,14 @@ export default async function ReportePdfPage() {
                 {f.precio != null ? formatearPrecio(f.precio) : "—"}
               </td>
               <td className="px-3 py-2">{f.estado}</td>
-              <td className="px-3 py-2 text-gray-500">{f.fecha}</td>
+              <td className="px-3 py-2 text-[--color-muted]">{f.fecha}</td>
             </tr>
           ))}
         </tbody>
       </table>
 
       {filas.length === 0 && (
-        <p className="mt-6 text-gray-500">No hay pedidos registrados.</p>
+        <p className="mt-6 text-[--color-muted]">No hay pedidos registrados.</p>
       )}
     </div>
   );

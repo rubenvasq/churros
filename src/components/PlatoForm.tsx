@@ -14,12 +14,12 @@ export function PlatoForm({
   action: (formData: FormData) => void | Promise<void>;
   plato?: Plato;
 }) {
-  const label = "block text-sm font-medium text-gray-700";
+  const label = "block text-sm font-medium text-[--color-ink]";
   const input =
-    "mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500";
+    "mt-1 w-full rounded-lg border border-[--color-line] px-3 py-2 text-sm focus:border-[--color-accent] focus:outline-none focus:ring-2 focus:ring-[--color-accent]/20";
 
   return (
-    <form action={action} className="space-y-5 rounded-2xl bg-white p-6 shadow">
+    <form action={action} className="space-y-5 rounded-2xl bg-[--color-surface] p-6 shadow">
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div className="sm:col-span-2">
           <label className={label}>Nombre *</label>
@@ -96,8 +96,8 @@ export function PlatoForm({
         </div>
       </div>
 
-      <fieldset className="flex flex-wrap gap-6 rounded-lg bg-gray-50 p-4">
-        <label className="flex items-center gap-2 text-sm text-gray-700">
+      <fieldset className="flex flex-wrap gap-6 rounded-lg bg-[--color-bg] p-4">
+        <label className="flex items-center gap-2 text-sm text-[--color-ink]">
           <input
             type="checkbox"
             name="saludable"
@@ -105,7 +105,7 @@ export function PlatoForm({
           />
           Saludable
         </label>
-        <label className="flex items-center gap-2 text-sm text-gray-700">
+        <label className="flex items-center gap-2 text-sm text-[--color-ink]">
           <input
             type="checkbox"
             name="vegano"
@@ -113,7 +113,7 @@ export function PlatoForm({
           />
           Vegano
         </label>
-        <label className="flex items-center gap-2 text-sm text-gray-700">
+        <label className="flex items-center gap-2 text-sm text-[--color-ink]">
           <input
             type="checkbox"
             name="incluirEnSaludables"
@@ -123,8 +123,8 @@ export function PlatoForm({
         </label>
       </fieldset>
 
-      <fieldset className="grid grid-cols-1 gap-5 rounded-lg border border-amber-200 bg-amber-50 p-4 sm:grid-cols-3">
-        <legend className="px-1 text-sm font-semibold text-amber-800">
+      <fieldset className="grid grid-cols-1 gap-5 rounded-lg border border-[--color-line] bg-[--color-accent-soft] p-4 sm:grid-cols-3">
+        <legend className="px-1 text-sm font-semibold text-[--color-accent]">
           Oferta (opcional)
         </legend>
         <div>
@@ -161,13 +161,13 @@ export function PlatoForm({
       <div className="flex gap-3">
         <button
           type="submit"
-          className="rounded-lg bg-amber-600 px-5 py-2 text-sm font-semibold text-white hover:bg-amber-700"
+          className="rounded-lg bg-[--color-ink] px-5 py-2 text-sm font-semibold text-white hover:opacity-90"
         >
           {plato ? "Guardar cambios" : "Crear plato"}
         </button>
         <Link
           href="/admin/platos"
-          className="rounded-lg border border-gray-300 px-5 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100"
+          className="rounded-lg border border-[--color-line] px-5 py-2 text-sm font-medium text-[--color-ink] hover:bg-[--color-bg]"
         >
           Cancelar
         </Link>

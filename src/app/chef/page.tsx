@@ -19,14 +19,14 @@ export default async function ChefPage() {
   return (
     <PanelShell titulo="Chef" usuario={session?.user}>
       <div className="mb-6 flex items-center justify-between">
-        <h2 className="text-2xl font-bold text-gray-900">Cocina</h2>
+        <h2 className="text-2xl font-bold text-[--color-ink]">Cocina</h2>
         <span className="rounded-full bg-yellow-100 px-3 py-1 text-sm font-semibold text-yellow-800">
           {pedidos.length} en espera
         </span>
       </div>
 
       {pedidos.length === 0 ? (
-        <p className="rounded-lg bg-white p-6 text-gray-500 shadow">
+        <p className="rounded-lg bg-[--color-surface] p-6 text-[--color-muted] shadow">
           No hay pedidos en espera. ¡Todo al día! 🎉
         </p>
       ) : (
@@ -36,10 +36,10 @@ export default async function ChefPage() {
             return (
               <article
                 key={pedido.id}
-                className="flex flex-col rounded-2xl bg-white p-5 shadow"
+                className="flex flex-col rounded-2xl bg-[--color-surface] p-5 shadow"
               >
                 <div className="flex items-start justify-between gap-2">
-                  <h3 className="font-semibold text-gray-900">
+                  <h3 className="font-semibold text-[--color-ink]">
                     {pedido.plato.nombre}
                   </h3>
                   <span
@@ -48,10 +48,10 @@ export default async function ChefPage() {
                     {info.texto}
                   </span>
                 </div>
-                <dl className="mt-3 space-y-1 text-sm text-gray-600">
+                <dl className="mt-3 space-y-1 text-sm text-[--color-muted]">
                   <div className="flex justify-between">
                     <dt>Cantidad</dt>
-                    <dd className="font-medium text-gray-900">
+                    <dd className="font-medium text-[--color-ink]">
                       ×{pedido.cantidad}
                     </dd>
                   </div>
@@ -75,7 +75,7 @@ export default async function ChefPage() {
                 <form action={marcarListo.bind(null, pedido.id)} className="mt-4">
                   <button
                     type="submit"
-                    className="w-full rounded-lg bg-amber-600 py-2 text-sm font-semibold text-white hover:bg-amber-700"
+                    className="w-full rounded-lg bg-[--color-ink] py-2 text-sm font-semibold text-white hover:opacity-90"
                   >
                     Marcar como listo ✓
                   </button>

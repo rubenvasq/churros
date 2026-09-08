@@ -30,11 +30,11 @@ export default async function EditarPlatoPage({
       <div className="mb-6">
         <Link
           href="/admin/platos"
-          className="text-sm text-amber-700 hover:underline"
+          className="text-sm text-[--color-accent] hover:underline"
         >
           ← Platos
         </Link>
-        <h2 className="text-2xl font-bold text-gray-900">
+        <h2 className="text-2xl font-bold text-[--color-ink]">
           Editar: {plato.nombre}
         </h2>
       </div>

@@ -25,23 +25,23 @@ export default async function ClienteMenuPage() {
   return (
     <PanelShell titulo="Cliente" usuario={session?.user}>
       <div className="mb-6 flex items-center justify-between">
-        <h2 className="text-2xl font-bold text-gray-900">Menú</h2>
+        <h2 className="text-2xl font-bold text-[--color-ink]">Menú</h2>
         <div className="flex gap-3">
           <Link
             href="/cliente/pedidos"
-            className="rounded-lg border border-amber-300 px-4 py-2 text-sm font-medium text-amber-800 hover:bg-amber-100"
+            className="rounded-lg border border-[--color-line] px-4 py-2 text-sm font-medium text-[--color-accent] hover:bg-[--color-accent-soft]"
           >
             Mis pedidos
           </Link>
           <Link
             href="/cliente/resenas"
-            className="rounded-lg border border-amber-300 px-4 py-2 text-sm font-medium text-amber-800 hover:bg-amber-100"
+            className="rounded-lg border border-[--color-line] px-4 py-2 text-sm font-medium text-[--color-accent] hover:bg-[--color-accent-soft]"
           >
             Reseñas
           </Link>
           <Link
             href="/cliente/carrito"
-            className="relative rounded-lg bg-amber-600 px-4 py-2 text-sm font-semibold text-white hover:bg-amber-700"
+            className="relative rounded-lg bg-[--color-ink] px-4 py-2 text-sm font-semibold text-white hover:opacity-90"
           >
             Carrito 🛒
             {totalCarrito > 0 && (
@@ -54,7 +54,7 @@ export default async function ClienteMenuPage() {
       </div>
 
       {platos.length === 0 ? (
-        <p className="text-gray-500">No hay platos disponibles por ahora.</p>
+        <p className="text-[--color-muted]">No hay platos disponibles por ahora.</p>
       ) : (
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {platos.map((plato) => {
@@ -63,7 +63,7 @@ export default async function ClienteMenuPage() {
             return (
               <article
                 key={plato.id}
-                className="flex flex-col overflow-hidden rounded-2xl bg-white shadow"
+                className="flex flex-col overflow-hidden rounded-2xl bg-[--color-surface] shadow"
               >
                 {plato.imagen ? (
                   // eslint-disable-next-line @next/next/no-img-element
@@ -73,13 +73,13 @@ export default async function ClienteMenuPage() {
                     className="h-40 w-full object-cover"
                   />
                 ) : (
-                  <div className="flex h-40 w-full items-center justify-center bg-amber-100 text-4xl">
+                  <div className="flex h-40 w-full items-center justify-center bg-[--color-accent-soft] text-4xl">
                     🍲
                   </div>
                 )}
                 <div className="flex flex-1 flex-col p-4">
                   <div className="flex items-start justify-between gap-2">
-                    <h3 className="font-semibold text-gray-900">{plato.nombre}</h3>
+                    <h3 className="font-semibold text-[--color-ink]">{plato.nombre}</h3>
                     {oferta && (
                       <span className="rounded-full bg-red-100 px-2 py-0.5 text-xs font-semibold text-red-700">
                         -{plato.descuentoPorcentaje}%
@@ -87,16 +87,16 @@ export default async function ClienteMenuPage() {
                     )}
                   </div>
                   {plato.descripcion && (
-                    <p className="mt-1 line-clamp-2 text-sm text-gray-500">
+                    <p className="mt-1 line-clamp-2 text-sm text-[--color-muted]">
                       {plato.descripcion}
                     </p>
                   )}
                   <div className="mt-3 flex items-baseline gap-2">
-                    <span className="text-lg font-bold text-amber-700">
+                    <span className="text-lg font-bold text-[--color-accent]">
                       {formatearPrecio(precioFinal)}
                     </span>
                     {oferta && (
-                      <span className="text-sm text-gray-400 line-through">
+                      <span className="text-sm text-[--color-muted] line-through">
                         {formatearPrecio(Number(plato.precio))}
                       </span>
                     )}
@@ -104,7 +104,7 @@ export default async function ClienteMenuPage() {
                   <form action={agregarAlCarrito.bind(null, plato.id)} className="mt-4">
                     <button
                       type="submit"
-                      className="w-full rounded-lg bg-amber-600 py-2 text-sm font-semibold text-white hover:bg-amber-700"
+                      className="w-full rounded-lg bg-[--color-ink] py-2 text-sm font-semibold text-white hover:opacity-90"
                     >
                       Añadir al carrito
                     </button>

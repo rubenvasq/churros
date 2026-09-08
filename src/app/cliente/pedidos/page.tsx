@@ -28,23 +28,23 @@ export default async function MisPedidosPage() {
   return (
     <PanelShell titulo="Cliente" usuario={session?.user}>
       <div className="mb-6 flex items-center justify-between">
-        <h2 className="text-2xl font-bold text-gray-900">Mis pedidos</h2>
+        <h2 className="text-2xl font-bold text-[--color-ink]">Mis pedidos</h2>
         <Link
           href="/cliente"
-          className="rounded-lg border border-amber-300 px-4 py-2 text-sm font-medium text-amber-800 hover:bg-amber-100"
+          className="rounded-lg border border-[--color-line] px-4 py-2 text-sm font-medium text-[--color-accent] hover:bg-[--color-accent-soft]"
         >
           ← Volver al menú
         </Link>
       </div>
 
       {pedidos.length === 0 ? (
-        <p className="rounded-lg bg-white p-6 text-gray-500 shadow">
+        <p className="rounded-lg bg-[--color-surface] p-6 text-[--color-muted] shadow">
           Aún no has hecho ningún pedido.
         </p>
       ) : (
-        <div className="overflow-hidden rounded-2xl bg-white shadow">
+        <div className="overflow-hidden rounded-2xl bg-[--color-surface] shadow">
           <table className="w-full text-left text-sm">
-            <thead className="bg-amber-50 text-amber-900">
+            <thead className="bg-[--color-accent-soft] text-[--color-ink]">
               <tr>
                 <th className="px-4 py-3">Plato</th>
                 <th className="px-4 py-3">Cantidad</th>
@@ -53,16 +53,16 @@ export default async function MisPedidosPage() {
                 <th className="px-4 py-3">Fecha</th>
               </tr>
             </thead>
-            <tbody className="divide-y">
+            <tbody className="divide-y divide-[--color-line]">
               {pedidos.map((pedido) => {
                 const info = ESTADO_INFO[pedido.estado];
                 return (
                   <tr key={pedido.id}>
-                    <td className="px-4 py-3 font-medium text-gray-900">
+                    <td className="px-4 py-3 font-medium text-[--color-ink]">
                       {pedido.plato.nombre}
                     </td>
-                    <td className="px-4 py-3 text-gray-600">{pedido.cantidad}</td>
-                    <td className="px-4 py-3 text-gray-600">
+                    <td className="px-4 py-3 text-[--color-muted]">{pedido.cantidad}</td>
+                    <td className="px-4 py-3 text-[--color-muted]">
                       {pedido.precioConDescuento != null
                         ? formatearPrecio(Number(pedido.precioConDescuento))
                         : "—"}
@@ -74,7 +74,7 @@ export default async function MisPedidosPage() {
                         {info.texto}
                       </span>
                     </td>
-                    <td className="px-4 py-3 text-gray-500">
+                    <td className="px-4 py-3 text-[--color-muted]">
                       {pedido.createdAt.toLocaleDateString("es-PE")}
                     </td>
                   </tr>

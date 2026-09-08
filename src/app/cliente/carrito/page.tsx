@@ -36,31 +36,31 @@ export default async function CarritoPage() {
   return (
     <PanelShell titulo="Cliente" usuario={session?.user}>
       <div className="mb-6 flex items-center justify-between">
-        <h2 className="text-2xl font-bold text-gray-900">Tu carrito</h2>
+        <h2 className="text-2xl font-bold text-[--color-ink]">Tu carrito</h2>
         <Link
           href="/cliente"
-          className="rounded-lg border border-amber-300 px-4 py-2 text-sm font-medium text-amber-800 hover:bg-amber-100"
+          className="rounded-lg border border-[--color-line] px-4 py-2 text-sm font-medium text-[--color-accent] hover:bg-[--color-accent-soft]"
         >
           ← Seguir comprando
         </Link>
       </div>
 
       {lineas.length === 0 ? (
-        <p className="rounded-lg bg-white p-6 text-gray-500 shadow">
+        <p className="rounded-lg bg-[--color-surface] p-6 text-[--color-muted] shadow">
           Tu carrito está vacío.{" "}
-          <Link href="/cliente" className="text-amber-700 hover:underline">
+          <Link href="/cliente" className="text-[--color-accent] hover:underline">
             Ver el menú
           </Link>
           .
         </p>
       ) : (
         <div className="space-y-4">
-          <div className="divide-y rounded-2xl bg-white shadow">
+          <div className="divide-y rounded-2xl bg-[--color-surface] shadow">
             {lineas.map((l) => (
               <div key={l.plato.id} className="flex items-center gap-4 p-4">
                 <div className="flex-1">
-                  <p className="font-semibold text-gray-900">{l.plato.nombre}</p>
-                  <p className="text-sm text-gray-500">
+                  <p className="font-semibold text-[--color-ink]">{l.plato.nombre}</p>
+                  <p className="text-sm text-[--color-muted]">
                     {formatearPrecio(l.precioUnitario)} c/u
                   </p>
                 </div>
@@ -69,7 +69,7 @@ export default async function CarritoPage() {
                   <form action={cambiarCantidad.bind(null, l.plato.id, l.cantidad - 1)}>
                     <button
                       type="submit"
-                      className="h-8 w-8 rounded-lg border border-gray-300 text-lg leading-none text-gray-700 hover:bg-gray-100"
+                      className="h-8 w-8 rounded-lg border border-[--color-line] text-lg leading-none text-[--color-ink] hover:bg-[--color-bg]"
                       aria-label="Restar"
                     >
                       −
@@ -79,7 +79,7 @@ export default async function CarritoPage() {
                   <form action={cambiarCantidad.bind(null, l.plato.id, l.cantidad + 1)}>
                     <button
                       type="submit"
-                      className="h-8 w-8 rounded-lg border border-gray-300 text-lg leading-none text-gray-700 hover:bg-gray-100"
+                      className="h-8 w-8 rounded-lg border border-[--color-line] text-lg leading-none text-[--color-ink] hover:bg-[--color-bg]"
                       aria-label="Sumar"
                     >
                       +
@@ -87,7 +87,7 @@ export default async function CarritoPage() {
                   </form>
                 </div>
 
-                <div className="w-24 text-right font-semibold text-amber-700">
+                <div className="w-24 text-right font-semibold text-[--color-accent]">
                   {formatearPrecio(l.subtotal)}
                 </div>
 
@@ -103,9 +103,9 @@ export default async function CarritoPage() {
             ))}
           </div>
 
-          <div className="flex items-center justify-between rounded-2xl bg-white p-6 shadow">
-            <span className="text-lg font-medium text-gray-700">Total</span>
-            <span className="text-2xl font-bold text-amber-700">
+          <div className="flex items-center justify-between rounded-2xl bg-[--color-surface] p-6 shadow">
+            <span className="text-lg font-medium text-[--color-ink]">Total</span>
+            <span className="text-2xl font-bold text-[--color-accent]">
               {formatearPrecio(total)}
             </span>
           </div>
