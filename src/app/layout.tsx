@@ -14,9 +14,20 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "El Rinconcito — Cocina peruana",
+  title: {
+    default: "El Rinconcito — Cocina peruana",
+    template: "%s · El Rinconcito",
+  },
   description:
-    "El Rinconcito — cocina peruana con ingredientes frescos. Pide en línea.",
+    "El Rinconcito — cocina peruana con ingredientes frescos. Explora la carta y pide en línea.",
+  keywords: ["comida peruana", "restaurante", "pedidos", "delivery", "menú"],
+  openGraph: {
+    title: "El Rinconcito — Cocina peruana",
+    description:
+      "Cocina peruana con ingredientes frescos. Explora la carta y pide en línea.",
+    type: "website",
+    locale: "es_PE",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

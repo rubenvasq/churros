@@ -17,7 +17,8 @@ pedidos "El Rinconcito", originalmente en Laravel. Usa **Prisma 6** sobre
 
 | Rol         | Panel          | Qué hace                                                        |
 | ----------- | -------------- | -------------------------------------------------------------- |
-| cliente     | `/cliente`     | Ve el menú, carrito (en cookie), confirma pedidos, reseñas     |
+| —           | `/registro`    | Registro de nuevos clientes (auto-login)                       |
+| cliente     | `/cliente`     | Menú con filtros por categoría, carrito, pedidos, reseñas      |
 | chef        | `/chef`        | Ve pedidos `en_espera` y los marca como `listo`                |
 | repartidor  | `/repartidor`  | Ve pedidos `listo` y los marca como `entregado`                |
 | admin       | `/admin`       | CRUD de platos, listado de pedidos, reportes Excel/PDF         |

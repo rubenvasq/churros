@@ -95,7 +95,13 @@ export default function LoginPage() {
             </button>
           </form>
 
-          <p className="mt-8 text-center text-sm text-muted">
+          <p className="mt-6 text-center text-sm text-muted">
+            ¿No tienes cuenta?{" "}
+            <Link href="/registro" className="font-medium text-accent hover:underline">
+              Regístrate
+            </Link>
+          </p>
+          <p className="mt-3 text-center text-sm text-muted">
             <Link href="/" className="hover:text-ink">
               ← Volver al inicio
             </Link>

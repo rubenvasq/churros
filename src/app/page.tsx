@@ -71,10 +71,10 @@ export default async function HomePage() {
                 Ver el menú
               </a>
               <Link
-                href="/login"
+                href="/registro"
                 className="rounded-full border border-ink/20 px-7 py-3 font-medium transition hover:border-ink/50"
               >
-                Iniciar sesión
+                Crear cuenta
               </Link>
             </div>
           </div>
@@ -179,14 +179,22 @@ export default async function HomePage() {
             ¿Con hambre? Empieza tu pedido.
           </h2>
           <p className="mx-auto mt-3 max-w-md text-muted">
-            Inicia sesión para armar tu carrito y seguir tu pedido en tiempo real.
+            Crea tu cuenta para armar tu carrito y seguir tu pedido en tiempo real.
           </p>
-          <Link
-            href="/login"
-            className="mt-7 inline-block rounded-full bg-ink px-8 py-3 font-medium text-white transition hover:opacity-90"
-          >
-            Iniciar sesión
-          </Link>
+          <div className="mt-7 flex flex-wrap justify-center gap-3">
+            <Link
+              href="/registro"
+              className="inline-block rounded-full bg-ink px-8 py-3 font-medium text-white transition hover:opacity-90"
+            >
+              Crear cuenta
+            </Link>
+            <Link
+              href="/login"
+              className="inline-block rounded-full border border-ink/20 px-8 py-3 font-medium transition hover:border-ink/50"
+            >
+              Iniciar sesión
+            </Link>
+          </div>
         </div>
       </section>
 
